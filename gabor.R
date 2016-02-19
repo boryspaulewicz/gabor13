@@ -114,7 +114,6 @@ trial.code = function(trial, side = 'left', duration = 1000){
         }, 'show-gabor' = {
             WINDOW$clear(c(.5, .5, .5))
             draw.stim(side)
-            ## WINDOW$draw(s)
             WINDOW$display()
             stim.onset = CLOCK$time
             state = 'gabor-present'
