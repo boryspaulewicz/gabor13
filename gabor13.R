@@ -1,5 +1,7 @@
 ## -*- coding: utf-8 -*-
 
+## TODO wielkość czcionki w oknie z instrukcją, w ogóle wygląd okna z instrukcją
+
 if(interactive())source('~/cs/code/r/tasks/task/task.R')
 
 ## Globalne parametry zadania
@@ -236,7 +238,7 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
 
 ## Etap właściwy
 gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby utrzymać skupienie i nie przybliżać ani nie oddalać się od ekranu.')
-run.trials(trial.code, condition = cnd, record.session = T,
+run.trials(trial.code, condition = cnd, record.session = F,
            expand.grid(side = c('left', 'right'),
                        decorder = ORDER, withscale = 1, feedback = 0,
                        duration = c(16, 128, 32, 32, 64, 64)), b = 12)
