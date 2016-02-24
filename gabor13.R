@@ -87,7 +87,7 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
             }
         }, 'break' = {
             WINDOW$clear(c(.5, .5, .5))
-            TXT$set.string("Krótka przerwa - naciśnij spację, aby kontynuować")
+            TXT$set.string("Krótka przerwa - odpocznij. Aby kontynuować, naciśnij spację")
             WINDOW$draw(center.win(TXT))
             WINDOW$display()
             if(KEY.RELEASED[Key.Space + 1] > start){
@@ -208,7 +208,10 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
 
 TASK.NAME <<- 'gabor13'
 
-gui.show.instruction("Za chwilę pojawi się okno danych osobowych")
+gui.show.instruction("W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
+Badanie jest anonimowe. Za chwilę zostaniesz poproszona/y o podanie danych: wieku, płci oraz pseudonimu. Pseudonim składa się z inicjałów oraz czterech cyfr: dnia 
+i miesiąca urodzenia (np. MS 0706). 
+")
 gui.user.data()
 cnd = source.random.condition()
 
