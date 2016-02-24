@@ -1,7 +1,5 @@
 ## -*- coding: utf-8 -*-
 
-## Trzeba dodać C-PAS i ciągłą jako manipulacje między-obiektowe
-
 if(interactive())source('~/cs/code/r/tasks/task/task.R')
 
 ## Globalne parametry zadania
