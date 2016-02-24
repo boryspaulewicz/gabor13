@@ -2,7 +2,7 @@
 
 ## Trzeba dodać C-PAS i ciągłą jako manipulacje między-obiektowe
 
-if(interactive())source('~/cs/code/r/tasks/task.R')
+if(interactive())source('~/cs/code/r/tasks/task/task.R')
 
 ## Globalne parametry zadania
 
@@ -11,6 +11,7 @@ POST.STIM.TIME = 200
 LONELY.MASK.DURATION = 0
 SCALE.MAX.DURATION = 3000
 MAX.REACTION.TIME = 3000
+FEEDBACK.TIME = 1000
 block.length = 24
 
 ## Parametry rysowania gabora i skali
@@ -64,7 +65,7 @@ draw.stim = function(side){
 
 KEYS <<- c(Key.Left, Key.Right)
 
-trial.code = function(trial, side = 'left', duration = 1000){
+trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000, withscale = 1, feedback = 0){
     ## Kod specyficzny dla zadania
     ## ...
     ## Szablon
@@ -80,14 +81,15 @@ trial.code = function(trial, side = 'left', duration = 1000){
         ## Kod specyficzny dla zadania
         switch(state, 'press-space' = {
             WINDOW$clear(c(.5, .5, .5))
-            WINDOW$draw(TXT)
+            TXT$set.string("Naciśnij spację aby rozpocząć zadanie")
+            WINDOW$draw(center.win(TXT))
             WINDOW$display()
             if(KEY.RELEASED[Key.Space + 1] > start){
                 state = 'show-fixation'
             }
         }, 'break' = {
             WINDOW$clear(c(.5, .5, .5))
-            TXT$set.string("Krótka przerwa - wciśnij spację, aby kontynuować")
+            TXT$set.string("Krótka przerwa - naciśnij spację, aby kontynuować")
             WINDOW$draw(center.win(TXT))
             WINDOW$display()
             if(KEY.RELEASED[Key.Space + 1] > start){
@@ -130,24 +132,35 @@ trial.code = function(trial, side = 'left', duration = 1000){
                 WINDOW$draw(m)
                 WINDOW$display()
                 mask.onset = CLOCK$time
+                scale.rt = scale.value = -1
+                mp = 666
                 state = 'mask-present'
             }
         }, 'mask-present' = {
             if((CLOCK$time - mask.onset) > LONELY.MASK.DURATION){
-                scale.onset = CLOCK$time
-                scale.rt = scale.value = -1
-                state = 'draw-scale'
+                if((decorder == 'type2') && (withscale == 1)){
+                    scale.onset = CLOCK$time
+                    state = 'draw-scale'
+                }else{
+                    state = 'show-leftright'
+                }
             }
         }, 'draw-scale' = {
             if(((CLOCK$time - scale.onset) > SCALE.MAX.DURATION) ||
                (BUTTON.PRESSED[1] > scale.onset)){
                     scale.rt = BUTTON.PRESSED[1] - scale.onset
                     scale.value = mp[1]
-                    state = 'show-leftright'
+                    if(decorder == 'type2'){
+                        state = 'show-leftright'
+                    }else{
+                        state = 'done'
+                    }
             }else{
                 WINDOW$clear(c(.5, .5, .5))
                 WINDOW$draw(m)
-                mp = draw.scale(c('OJ', 'JEJ'), background.color = c(.5, .5, .5), position = scale.position)
+                mp = draw.scale(list(M = c('Nic nie widziałem', 'Widziałem bardzo wyraźnie'),
+                                     K = c('Nic nie widziałam', 'Widziałam bardzo wyraźnie'))[[USER.DATA$gender]],
+                                     background.color = c(.5, .5, .5), position = scale.position)
                 WINDOW$display()
             }
         }, 'show-leftright' = {
@@ -163,7 +176,28 @@ trial.code = function(trial, side = 'left', duration = 1000){
             ACC <<- RT <<- NULL
             state = 'measure-reaction'
         }, 'measure-reaction' = {
-            if(!is.null(ACC) || ((CLOCK$time - leftright.onset) > MAX.REACTION.TIME))state = 'done'
+            if(!is.null(ACC) || ((CLOCK$time - leftright.onset) > MAX.REACTION.TIME)){
+                if((decorder == 'type1') && (withscale == 1)){
+                    scale.onset = CLOCK$time
+                    state = 'draw-scale'
+                }else{
+                    if(feedback == 1){
+                        feedback.onset = CLOCK$time
+                        state = 'feedback'
+                    }else{
+                        state = 'done'
+                    }
+                }
+            }
+        }, 'feedback' = {
+            if((CLOCK$time - feedback.onset) < FEEDBACK.TIME){
+                WINDOW$clear(c(.5, .5, .5))
+                TXT$set.string(c('Źle', 'Dobrze', 'Za późno')[ifelse(is.null(ACC), 3, ACC + 1)])
+                WINDOW$draw(center.win(TXT))
+                WINDOW$display()
+            }else{
+                state = 'done'
+            }
         }, 'done' = {
             WINDOW$clear(c(.5, .5, .5))
             WINDOW$display()
@@ -174,14 +208,35 @@ trial.code = function(trial, side = 'left', duration = 1000){
     }
 }
 
-gui.show.instruction("Za chwilę pojawi się okno danych osobowych")
-## init.session()
-## SESSION.ID <<- 0
 TASK.NAME <<- 'gabor13'
-DB.DEBUG <<- TRUE
-USER.DATA = list(name = 'admin', age = 37, gender = 'M')
-## source('./condition/cfg.R')
 
-## Uruchamiamy próby zadania
-run.trials(trial.code, expand.grid(side = c('left', 'right'), duration = c(16, 128, 32, 32, 64, 64)), b = 12)
+gui.show.instruction("Za chwilę pojawi się okno danych osobowych")
+gui.user.data()
+cnd = source.random.condition()
+
+## Trening1: 16 prób, czas prezentacji 512, feedback, bez skali
+gui.show.instruction(list(K = "To jest instrukcja do pierwszego treningu dla mnie, dzielnej niewiasty",
+                          M = "To jest instrukcja do pierwszego treningu dla mnie, nadobnego młodzieńca")[[USER.DATA$gender]])
+run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
+                                                    decorder = 'type1', withscale = 0, feedback = 1,
+                                                    duration = 512), b = 8)
+
+## Trening2: 12 prób, czas prezentacji 128, feedback, bez skali
+gui.show.instruction("To jest instrukcja do drugiego treningu")
+run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
+                                                    decorder = 'type1', withscale = 0, feedback = 1,
+                                                    duration = 128), b = 6)
+
+## Trening3: 12 prób, czas prezentacji 128, bez feedkacku, skala
+gui.show.instruction("To jest instrukcja do trzeciego treningu")
+run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
+                                                    decorder = ORDER, withscale = 1, feedback = 0,
+                                                    duration = c(16, 128, 32, 32, 64, 64)), b = 1)
+
+## Etap właściwy
+gui.show.instruction("To jest instrukcja do etapu właściwego")
+run.trials(trial.code, condition = cnd, record.session = T,
+           expand.grid(side = c('left', 'right'),
+                       decorder = ORDER, withscale = 1, feedback = 0,
+                       duration = c(16, 128, 32, 32, 64, 64)), b = 12)
 if(!interactive())quit("no")

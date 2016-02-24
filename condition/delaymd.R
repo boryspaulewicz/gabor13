@@ -1,2 +1,2 @@
 LONELY.MASK.DURATION = 608
-ORDER = 'md'
+ORDER = 'type2'

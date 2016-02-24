@@ -1,2 +1,2 @@
 LONELY.MASK.DURATION = 0
-ORDER = 'dm'
+ORDER = 'type1'
