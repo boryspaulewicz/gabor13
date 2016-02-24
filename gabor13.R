@@ -229,13 +229,13 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     duration = 128), b = 6)
 
 ## Trening3: 12 prób, czas prezentacji 128, bez feedkacku, skala
-gui.show.instruction("To jest instrukcja do trzeciego treningu")
+gui.show.instruction(INSTR3T)
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = ORDER, withscale = 1, feedback = 0,
                                                     duration = c(16, 128, 32, 32, 64, 64)), b = 1)
 
 ## Etap właściwy
-gui.show.instruction("To jest instrukcja do etapu właściwego")
+gui.show.instruction(INSTR)
 run.trials(trial.code, condition = cnd, record.session = T,
            expand.grid(side = c('left', 'right'),
                        decorder = ORDER, withscale = 1, feedback = 0,
