@@ -1,6 +1,7 @@
 LONELY.MASK.DURATION = 0
 ORDER = 'type2'
 INSTR=list(M = 'Teraz będzie trzeci trening, w którym paski będą się wyświetlać tak, jak w głównym zadaniu. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
-Dodatkowo, po każdej decyzji "lewo/prawo", pojawi się skala, na której będziesz zaznaczać, jak dobrze widziałeś wzór. Do zaznaczania na skali używaj myszki i swojej DOMINUJĄCEJ ręki (prawej, jeśli jesteś praworęczny). Do klikania „prawo-lewo” używaj strzałek na klawiaturze i DRUGIEJ ręki. Możesz przesunąć klawiaturę tak, aby było Ci wygodnie.',
+Tym razem przed każdą decyzji "lewo/prawo”, pojawi się skala, na której będziesz zaznaczać, jak dobrze widziałeś wzór. Do zaznaczania na skali używaj myszki i swojej DOMINUJĄCEJ ręki (prawej, jeśli jesteś praworęczna/y). Do klikania „prawo-lewo” używaj strzałek na klawiaturze i DRUGIEJ ręki. Możesz przesunąć klawiaturę tak, aby było Ci wygodnie.
+',
 K = 'Teraz będzie trzeci trening, w którym paski będą się wyświetlać tak, jak w głównym zadaniu. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
-Dodatkowo, po każdej decyzji "lewo/prawo", pojawi się skala, na której będziesz zaznaczać, jak dobrze widziałaś wzór. Do zaznaczania na skali używaj myszki i swojej DOMINUJĄCEJ ręki (prawej, jeśli jesteś praworęczna). Do klikania „prawo-lewo” używaj strzałek na klawiaturze i DRUGIEJ ręki. Możesz przesunąć klawiaturę tak, aby było Ci wygodnie.')[[USER.DATA$gender]]
+Tym razem przed każdą decyzją "lewo/prawo", pojawi się skala, na której będziesz zaznaczać, jak dobrze widziałaś wzór. Do zaznaczania na skali używaj myszki i swojej DOMINUJĄCEJ ręki (prawej, jeśli jesteś praworęczna). Do klikania „prawo-lewo” używaj strzałek na klawiaturze i DRUGIEJ ręki. Możesz przesunąć klawiaturę tak, aby było Ci wygodnie.')[[USER.DATA$gender]]
