@@ -5,6 +5,9 @@
 ## Aby skopiować obraz systemu na pendrive'a pod Windowsem można użyć
 ## programu Win32DiskImager, dostępnego tutaj:
 ## https://sourceforge.net/projects/win32diskimager/
+##
+## UWAGA wybranie złej litery dysku docelowego może grozić utratą
+## danych
 
 ## TODO wielkość czcionki w oknie z instrukcją, w ogóle wygląd okna z instrukcją
 
