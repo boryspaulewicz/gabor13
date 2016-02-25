@@ -78,6 +78,7 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
     start = CLOCK$time
     while(WINDOW$is.open()){
         process.inputs()
+        if(KEY.PRESSED[Key.Escape + 1] > start)return(NULL)
         ## Kod specyficzny dla zadania
         switch(state, 'press-space' = {
             WINDOW$clear(c(.5, .5, .5))
