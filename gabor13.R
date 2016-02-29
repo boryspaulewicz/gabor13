@@ -16,10 +16,10 @@ if(interactive())source('~/cs/code/r/tasks/task/task.R')
 ## Globalne parametry zadania
 
 FIXATION.TIME = 1000
-POST.STIM.TIME = 16
+POST.STIM.TIME = 0
 LONELY.MASK.DURATION = 0
-SCALE.MAX.DURATION = 5000
-MAX.REACTION.TIME = 3000
+SCALE.MAX.DURATION = 4000
+MAX.REACTION.TIME = 4000
 FEEDBACK.TIME = 1000
 block.length = 24
 
