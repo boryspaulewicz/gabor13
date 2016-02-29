@@ -222,14 +222,20 @@ TASK.NAME <<- 'gabor13'
 
 gui.show.instruction("W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
 Badanie jest anonimowe. Za chwilę zostaniesz poproszona/y o podanie danych: wieku, płci oraz pseudonimu. Pseudonim składa się z inicjałów oraz czterech cyfr: dnia 
-i miesiąca urodzenia (np. MS 0706). 
+i miesiąca urodzenia (np.  ms0706). 
 ")
 gui.user.data()
 cnd = source.random.condition()
 
 ## Trening1: 16 prób, czas prezentacji 512, feedback, bez skali
-gui.show.instruction(list(K = "To jest instrukcja do pierwszego treningu dla mnie, dzielnej niewiasty",
-                          M = "To jest instrukcja do pierwszego treningu dla mnie, nadobnego młodzieńca")[[USER.DATA$gender]])
+gui.show.instruction(list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
+Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
+Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałaś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałam” do „widziałam bardzo wyraźnie”.
+W trakcie trwania wszystkich zadania staraj się zachować skupienie oraz nie przysuwać się w kierunku ekranu.",
+                          M = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
+Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
+Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałeś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałem” do „widziałem bardzo wyraźnie”.
+W trakcie trwania wszystkich zadania staraj się zachować skupienie oraz nie przysuwać się w kierunku ekranu.")[[USER.DATA$gender]])
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = 'type1', withscale = 0, feedback = 1,
                                                     duration = 512), b = 8)
