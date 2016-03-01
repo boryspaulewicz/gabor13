@@ -11,10 +11,7 @@
 
 ## TODO wielkość czcionki w oknie z instrukcją, w ogóle wygląd okna z instrukcją
 
-if(interactive()){
-    source('~/cs/code/r/tasks/task/task.R')
-    db.connect('task')
-}
+if(interactive())source('~/cs/code/r/tasks/task/task.R')
 
 ## Globalne parametry zadania
 
