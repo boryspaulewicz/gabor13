@@ -15,7 +15,7 @@ if(interactive())source('~/cs/code/r/tasks/task/task.R')
 
 ## Globalne parametry zadania
 
-FIXATION.TIME = 1000
+FIXATION.TIME = 2000
 POST.STIM.TIME = 0
 LONELY.MASK.DURATION = 0
 SCALE.MAX.DURATION = 4000
