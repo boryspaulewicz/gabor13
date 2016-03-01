@@ -221,7 +221,7 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
 TASK.NAME <<- 'gabor13'
 
 cnd = gui.choose.item(dir('./condition/'))
-source(cnd)
+source(paste('./condition/', cnd, sep = ''))
 ## cnd = source.random.condition()
 
 gui.show.instruction("W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
