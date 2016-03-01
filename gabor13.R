@@ -11,7 +11,10 @@
 
 ## TODO wielkość czcionki w oknie z instrukcją, w ogóle wygląd okna z instrukcją
 
-if(interactive())source('~/cs/code/r/tasks/task/task.R')
+if(interactive()){
+    source('~/cs/code/r/tasks/task/task.R')
+    db.connect('task')
+}
 
 ## Globalne parametry zadania
 
@@ -231,20 +234,20 @@ cnd = source.random.condition()
 gui.show.instruction(list(K = "To jest instrukcja do pierwszego treningu dla mnie, dzielnej niewiasty",
                           M = "To jest instrukcja do pierwszego treningu dla mnie, nadobnego młodzieńca")[[USER.DATA$gender]])
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
-                                                    decorder = 'type1', withscale = 0, feedback = 1,
-                                                    duration = 512), b = 8)
+                           decorder = 'type1', withscale = 0, feedback = 1,
+                           duration = 512), b = 8)
 
 ## Trening2: 12 prób, czas prezentacji 128, feedback, bez skali
 gui.show.instruction("To jest instrukcja do drugiego treningu")
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
-                                                    decorder = 'type1', withscale = 0, feedback = 1,
-                                                    duration = 128), b = 6)
+                           decorder = 'type1', withscale = 0, feedback = 1,
+                           duration = 128), b = 6)
 
 ## Trening3: 12 prób, czas prezentacji 128, bez feedkacku, skala
 gui.show.instruction(INSTR)
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
-                                                    decorder = ORDER, withscale = 1, feedback = 0,
-                                                    duration = c(16, 128, 32, 32, 64, 64)), b = 1)
+                           decorder = ORDER, withscale = 1, feedback = 0,
+                           duration = c(16, 128, 32, 32, 64, 64)), b = 1)
 
 ## Etap właściwy
 gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby utrzymać skupienie i nie przybliżać ani nie oddalać się od ekranu.')
