@@ -227,7 +227,7 @@ i miesiąca urodzenia (np.  ms0706).
 gui.user.data()
 cnd = source.random.condition()
 
-## Trening1: 16 prób, czas prezentacji 512, feedback, bez skali
+## Trening1: 12 prób, czas prezentacji 512, feedback, bez skali
 gui.show.instruction(list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
 Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
 Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałaś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałam” do „widziałam bardzo wyraźnie”.
@@ -241,15 +241,15 @@ Teraz będzie się pierwszy trening, żebyś zobaczył jak wyglądają czarno-bi
 Na początku każdej „próby” na środku ekranu pojawi się krzyżyk. Staraj się koncentrować na nim swój wzrok. Po zniknięciu krzyżyka na ekranie pojawią się czarno-białe paski, które następnie zostaną przesłonięte czarno-białą szachownicą. Gdy pojawią się opcje „prawo – lewo” wciśnij strzałkę w lewo, jeśli paski były pochylone w lewo, a strzałkę w prawo, jeśli paski były pochylone w prawo.")[[USER.DATA$gender]])
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = 'type1', withscale = 0, feedback = 1,
-                                                    duration = 512), b = 8)
+                                                    duration = 512), b = 6)
 
-## Trening2: 12 prób, czas prezentacji 128, feedback, bez skali
+## Trening2: 8 prób, czas prezentacji 128, feedback, bez skali
 gui.show.instruction("Teraz będzie drugi trening, w którym paski będą wyświetlane krócej.")
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = 'type1', withscale = 0, feedback = 1,
-                                                    duration = 128), b = 6)
+                                                    duration = 128), b = 4)
 
-## Trening3: 12 prób, czas prezentacji 128, bez feedkacku, skala
+## Trening3: 12 prób, czasy prezentacji wszystkie, bez feedkacku, skala
 gui.show.instruction(INSTR)
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = ORDER, withscale = 1, feedback = 0,
