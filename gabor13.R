@@ -220,9 +220,9 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
 
 TASK.NAME <<- 'gabor13'
 
-cnd = gui.choose.item(dir('./condition/'))
-source(cnd)
-## cnd = source.random.condition()
+## cnd = gui.choose.item(dir('./condition/'))
+## source(cnd)
+cnd = source.random.condition()
 
 gui.show.instruction("W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
 Badanie jest anonimowe. Za chwilę zostaniesz poproszona/y o podanie danych: wieku, płci oraz pseudonimu. Pseudonim składa się z inicjałów (małymi literami) oraz czterech cyfr: dnia 
