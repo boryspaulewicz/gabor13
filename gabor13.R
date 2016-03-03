@@ -234,12 +234,12 @@ gui.user.data()
 gui.show.instruction(list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
 Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz widziała, w którą stronę są pochylone, po prostu zgaduj. 
 Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałaś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałam” do „widziałam bardzo wyraźnie”.
-W trakcie trwania wszystkich zadań staraj się zachować skupienie oraz nie przysuwać się w kierunku ekranu.Teraz odbędzie się pierwszy trening, żebyś zobaczyła jak wyglądają czarno-białe paski.
+W trakcie trwania wszystkich zadań siedź na wprost ekranu oraz nie przysuwaj ani nie oddalaj się od monitora.Teraz odbędzie się pierwszy trening, żebyś zobaczyła jak wyglądają czarno-białe paski.
 Na początku każdej „próby” na środku ekranu pojawi się krzyżyk. Staraj się koncentrować na nim swój wzrok. Po zniknięciu krzyżyka na ekranie pojawią się czarno-białe paski, które następnie zostaną przesłonięte czarno-białą szachownicą. Gdy pojawią się opcje „prawo – lewo” wciśnij strzałkę w lewo, jeśli paski były pochylone w lewo, a strzałkę w prawo, jeśli paski były pochylone w prawo.",
                           M = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
 Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz widział, w którą stronę są pochylone, po prostu zgaduj. 
 Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałeś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałem” do „widziałem bardzo wyraźnie”.
-W trakcie trwania wszystkich zadań staraj się zachować skupienie oraz nie przysuwać się w kierunku ekranu.
+W trakcie trwania wszystkich zadań siedź na wprost ekranu oraz nie przysuwaj ani nie oddalaj się od monitora.
 Teraz odbędzie się pierwszy trening, żebyś zobaczył jak wyglądają czarno-białe paski.
 Na początku każdej „próby” na środku ekranu pojawi się krzyżyk. Staraj się koncentrować na nim swój wzrok. Po zniknięciu krzyżyka na ekranie pojawią się czarno-białe paski, które następnie zostaną przesłonięte czarno-białą szachownicą. Gdy pojawią się opcje „prawo – lewo” wciśnij strzałkę w lewo, jeśli paski były pochylone w lewo, a strzałkę w prawo, jeśli paski były pochylone w prawo.")[[USER.DATA$gender]])
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
@@ -259,12 +259,12 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                            duration = c(16, 128, 32, 64)), b = 1)
 
 ## Etap właściwy
-gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby utrzymać skupienie i nie przybliżać ani nie oddalać się od ekranu.')
+gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby siedzieć na wprost ekranu oraz nie przybliżać ani nie oddalać się od monitora. Zadanie potrwa kilkanaście minut.')
 run.trials(trial.code, condition = cnd, record.session = T,
                         decorder = ORDER, withscale = 1, feedback = 0,
                         expand.grid(side = c('left', 'right'),
                                     duration = c(16, 128, 32, 32, 64, 64)), b = 12)
                        
-gui.show.instruction("Koniec? No to pa.")
+gui.show.instruction("To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
 
 if(!interactive())quit("no")
