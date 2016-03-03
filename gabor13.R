@@ -256,7 +256,7 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
 gui.show.instruction(INSTR)
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                            decorder = ORDER, withscale = 1, feedback = 0,
-                           duration = c(16, 128, 32, 64)), b = 4)
+                           duration = c(16, 128, 32, 64)), b = 1)
 
 ## Etap właściwy
 gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby utrzymać skupienie i nie przybliżać ani nie oddalać się od ekranu.')
