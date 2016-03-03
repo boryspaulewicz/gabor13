@@ -264,4 +264,7 @@ run.trials(trial.code, condition = cnd, record.session = T,
            expand.grid(side = c('left', 'right'),
                        decorder = ORDER, withscale = 1, feedback = 0,
                        duration = c(16, 128, 32, 32, 64, 64)), b = 12)
+                       
+gui.show.instruction("Koniec? No to pa.")
+
 if(!interactive())quit("no")
