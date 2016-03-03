@@ -15,7 +15,7 @@ if(interactive())source('~/cs/code/r/tasks/task/task.R')
 
 ## Globalne parametry zadania
 
-FIXATION.TIME = 2000
+FIXATION.TIME = 1500
 POST.STIM.TIME = 0
 LONELY.MASK.DURATION = 0
 SCALE.MAX.DURATION = 4000
@@ -220,9 +220,9 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
 
 TASK.NAME <<- 'gabor13'
 
-cnd = gui.choose.item(dir('./condition/'))
+## cnd = gui.choose.item(dir('./condition/'))
+cnd = source.random.condition()
 source(paste('./condition/', cnd, sep = ''))
-## cnd = source.random.condition()
 
 gui.show.instruction("W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
 Badanie jest anonimowe. Za chwilę zostaniesz poproszona/y o podanie danych: wieku, płci oraz pseudonimu. Pseudonim składa się z inicjałów (małymi literami) oraz czterech cyfr: dnia 
@@ -230,38 +230,41 @@ i miesiąca urodzenia (np.  ms0706).
 ")
 gui.user.data()
 
-## Trening1: 12 prób, czas prezentacji 512, feedback, bez skali
+## Trening1: 18 prób, czas prezentacji 512, feedback, bez skali
 gui.show.instruction(list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
-Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
+Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz widziała, w którą stronę są pochylone, po prostu zgaduj. 
 Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałaś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałam” do „widziałam bardzo wyraźnie”.
-W trakcie trwania wszystkich zadania staraj się zachować skupienie oraz nie przysuwać się w kierunku ekranu.Teraz będzie się pierwszy trening, żebyś zobaczyła jak wyglądają czarno-białe paski.
+W trakcie trwania wszystkich zadań siedź na wprost ekranu oraz nie przysuwaj ani nie oddalaj się od monitora.Teraz odbędzie się pierwszy trening, żebyś zobaczyła jak wyglądają czarno-białe paski.
 Na początku każdej „próby” na środku ekranu pojawi się krzyżyk. Staraj się koncentrować na nim swój wzrok. Po zniknięciu krzyżyka na ekranie pojawią się czarno-białe paski, które następnie zostaną przesłonięte czarno-białą szachownicą. Gdy pojawią się opcje „prawo – lewo” wciśnij strzałkę w lewo, jeśli paski były pochylone w lewo, a strzałkę w prawo, jeśli paski były pochylone w prawo.",
                           M = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
-Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
+Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz widział, w którą stronę są pochylone, po prostu zgaduj. 
 Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałeś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałem” do „widziałem bardzo wyraźnie”.
-W trakcie trwania wszystkich zadania staraj się zachować skupienie oraz nie przysuwać się w kierunku ekranu.
-Teraz będzie się pierwszy trening, żebyś zobaczył jak wyglądają czarno-białe paski.
+W trakcie trwania wszystkich zadań siedź na wprost ekranu oraz nie przysuwaj ani nie oddalaj się od monitora.
+Teraz odbędzie się pierwszy trening, żebyś zobaczył jak wyglądają czarno-białe paski.
 Na początku każdej „próby” na środku ekranu pojawi się krzyżyk. Staraj się koncentrować na nim swój wzrok. Po zniknięciu krzyżyka na ekranie pojawią się czarno-białe paski, które następnie zostaną przesłonięte czarno-białą szachownicą. Gdy pojawią się opcje „prawo – lewo” wciśnij strzałkę w lewo, jeśli paski były pochylone w lewo, a strzałkę w prawo, jeśli paski były pochylone w prawo.")[[USER.DATA$gender]])
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = 'type1', withscale = 0, feedback = 1,
-                                                    duration = 512), b = 6)
+                                                    duration = 512), b = 9)
 
-## Trening2: 8 prób, czas prezentacji 128, feedback, bez skali
+## Trening2: 6 prób, czas prezentacji 128, feedback, bez skali
 gui.show.instruction("Teraz będzie drugi trening, w którym paski będą wyświetlane krócej.")
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = 'type1', withscale = 0, feedback = 1,
-                                                    duration = 128), b = 4)
+                                                    duration = 128), b = 3)
 
-## Trening3: 12 prób, czasy prezentacji wszystkie, bez feedkacku, skala
+## Trening3: 8 prób, czasy prezentacji wszystkie, bez feedkacku, skala
 gui.show.instruction(INSTR)
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                            decorder = ORDER, withscale = 1, feedback = 0,
-                           duration = c(16, 128, 32, 32, 64, 64)), b = 1)
+                           duration = c(16, 128, 32, 64)), b = 1)
 
 ## Etap właściwy
-gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby utrzymać skupienie i nie przybliżać ani nie oddalać się od ekranu.')
+gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby siedzieć na wprost ekranu oraz nie przybliżać ani nie oddalać się od monitora. Zadanie potrwa kilkanaście minut.')
 run.trials(trial.code, condition = cnd, record.session = T,
-           expand.grid(side = c('left', 'right'),
-                       decorder = ORDER, withscale = 1, feedback = 0,
-                       duration = c(16, 128, 32, 32, 64, 64)), b = 12)
+                        decorder = ORDER, withscale = 1, feedback = 0,
+                        expand.grid(side = c('left', 'right'),
+                                    duration = c(16, 128, 32, 32, 64, 64)), b = 12)
+                       
+gui.show.instruction("To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
+
 if(!interactive())quit("no")
