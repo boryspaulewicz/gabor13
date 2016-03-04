@@ -224,14 +224,14 @@ TASK.NAME <<- 'gabor13'
 cnd = source.random.condition()
 source(paste('./condition/', cnd, sep = ''))
 
-gui.show.instruction("W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
+gui.show.instruction(scale = 17, "W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
 Badanie jest anonimowe. Za chwilę zostaniesz poproszona/y o podanie danych: wieku, płci oraz pseudonimu. Pseudonim składa się z inicjałów (małymi literami) oraz czterech cyfr: dnia 
 i miesiąca urodzenia (np.  ms0706). 
 ")
 gui.user.data()
 
 ## Trening1: 18 prób, czas prezentacji 512, feedback, bez skali
-gui.show.instruction(list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
+gui.show.instruction(scale = 17, list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
 Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz widziała, w którą stronę są pochylone, po prostu zgaduj. 
 Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałaś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałam” do „widziałam bardzo wyraźnie”.
 W trakcie trwania wszystkich zadań siedź na wprost ekranu oraz nie przysuwaj ani nie oddalaj się od monitora.Teraz odbędzie się pierwszy trening, żebyś zobaczyła jak wyglądają czarno-białe paski.
@@ -247,7 +247,7 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     duration = 512), b = 9)
 
 ## Trening2: 6 prób, czas prezentacji 128, feedback, bez skali
-gui.show.instruction("Teraz będzie drugi trening, w którym paski będą wyświetlane krócej.")
+gui.show.instruction(scale = 17, "Teraz będzie drugi trening, w którym paski będą wyświetlane krócej.")
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = 'type1', withscale = 0, feedback = 1,
                                                     duration = 128), b = 3)
@@ -259,12 +259,12 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                            duration = c(16, 128, 32, 64)), b = 1)
 
 ## Etap właściwy
-gui.show.instruction('Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby siedzieć na wprost ekranu oraz nie przybliżać ani nie oddalać się od monitora. Zadanie potrwa kilkanaście minut.')
+gui.show.instruction(scale = 17, 'Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby siedzieć na wprost ekranu oraz nie przybliżać ani nie oddalać się od monitora. Zadanie potrwa kilkanaście minut.')
 run.trials(trial.code, condition = cnd, record.session = T,
                         decorder = ORDER, withscale = 1, feedback = 0,
                         expand.grid(side = c('left', 'right'),
                                     duration = c(16, 128, 32, 32, 64, 64)), b = 12)
                        
-gui.show.instruction("To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
+gui.show.instruction(scale = 17, "To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
 
 if(!interactive())quit("no")
