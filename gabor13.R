@@ -224,7 +224,7 @@ TASK.NAME <<- 'gabor13'
 cnd = source.random.condition()
 source(paste('./condition/', cnd, sep = ''))
 
-gui.show.instruction(scale = 14, "W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
+gui.show.instruction(scale = 13, "W czasie eksperymentu obowiązuje cisza. Wyłącz telefon komórkowy. W razie jakichkolwiek wątpliwości nie wołaj osoby prowadzącej, tylko podnieś do góry rękę - osoba prowadząca podejdzie w dogodnym momencie i postara się udzielić wszelkich wyjaśnień. 
 Badanie jest anonimowe. Za chwilę zostaniesz poproszona/y o podanie danych: wieku, płci oraz pseudonimu. Pseudonim składa się z inicjałów (małymi literami) oraz czterech cyfr: dnia i miesiąca urodzenia (np.  ms0706). 
 ")
 gui.user.data()
@@ -246,24 +246,24 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     duration = 512), b = 9)
 
 ## Trening2: 6 prób, czas prezentacji 128, feedback, bez skali
-gui.show.instruction(scale = 14, "Teraz będzie drugi trening, w którym paski będą wyświetlane krócej.")
+gui.show.instruction(scale = 13, "Teraz będzie drugi trening, w którym paski będą wyświetlane krócej.")
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     decorder = 'type1', withscale = 0, feedback = 1,
                                                     duration = 128), b = 3)
 
 ## Trening3: 8 prób, czasy prezentacji wszystkie, bez feedkacku, skala
-gui.show.instruction(scale = 14, INSTR)
+gui.show.instruction(scale = 13, INSTR)
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                            decorder = ORDER, withscale = 1, feedback = 0,
                            duration = c(16, 128, 32, 64)), b = 1)
 
 ## Etap właściwy
-gui.show.instruction(scale = 14, 'Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby siedzieć na wprost ekranu oraz nie przybliżać ani nie oddalać się od monitora. Zadanie potrwa kilkanaście minut.')
+gui.show.instruction(scale = 13, 'Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby siedzieć na wprost ekranu oraz nie przybliżać ani nie oddalać się od monitora. Zadanie potrwa kilkanaście minut.')
 run.trials(trial.code, condition = cnd, record.session = T,
                         decorder = ORDER, withscale = 1, feedback = 0,
                         expand.grid(side = c('left', 'right'),
                                     duration = c(16, 128, 32, 32, 64, 64)), b = 12)
                        
-gui.show.instruction(scale = 14, "To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
+gui.show.instruction(scale = 13, "To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
 
 if(!interactive())quit("no")
