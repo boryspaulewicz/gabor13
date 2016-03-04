@@ -230,7 +230,7 @@ Badanie jest anonimowe. Za chwilę zostaniesz poproszona/y o podanie danych: wie
 gui.user.data()
 
 ## Trening1: 18 prób, czas prezentacji 512, feedback, bez skali
-gui.show.instruction(scale = 14, list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
+gui.show.instruction(scale = 12, list(K = "Badanie dotyczy percepcji oraz świadomości wzrokowej.
 Twoim głównym zadaniem będzie decydowanie, czy czarno-białe paski pojawiające się na ekranie są pochylone w lewą czy w prawą stronę. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz widziała, w którą stronę są pochylone, po prostu zgaduj. 
 Twoim drugim zadaniem będzie odpowiedź na pytanie jak dobrze widziałaś wzroki. Będziesz zaznaczać ją na skali opisanej od „nic nie widziałam” do „widziałam bardzo wyraźnie”.
 W trakcie trwania wszystkich zadań siedź na wprost ekranu oraz nie przysuwaj ani nie oddalaj się od monitora.Teraz odbędzie się pierwszy trening, żebyś zobaczyła jak wyglądają czarno-białe paski.
