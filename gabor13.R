@@ -262,7 +262,7 @@ gui.show.instruction(scale = 13, 'Teraz zacznie się właściwe zadanie, które 
 run.trials(trial.code, condition = cnd, record.session = T,
                         expand.grid(decorder = ORDER, withscale = 1, feedback = 0,
                                     side = c('left', 'right'),
-                                    duration = c(16, 128, 32, 32, 64, 64)), b = 12)
+                                    duration = c(16, 128, 32, 32, 64, 64)), b = 4)
                        
 gui.show.instruction(scale = 13, "To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
 
