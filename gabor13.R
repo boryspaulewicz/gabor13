@@ -260,8 +260,8 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
 ## Etap właściwy
 gui.show.instruction(scale = 13, 'Teraz zacznie się właściwe zadanie, które będzie wyglądać dokładnie tak samo jak trzeci trening. Będzie przedzielone przerwami. Pamiętaj, aby siedzieć na wprost ekranu oraz nie przybliżać ani nie oddalać się od monitora. Zadanie potrwa kilkanaście minut.')
 run.trials(trial.code, condition = cnd, record.session = T,
-                        decorder = ORDER, withscale = 1, feedback = 0,
-                        expand.grid(side = c('left', 'right'),
+                        expand.grid(decorder = ORDER, withscale = 1, feedback = 0,
+                                    side = c('left', 'right'),
                                     duration = c(16, 128, 32, 32, 64, 64)), b = 12)
                        
 gui.show.instruction(scale = 13, "To już koniec tego zadania. Dziękujemy. Proszę pozostać na swoim miejscu do czasu, gdy osoba prowadząca badanie nie poda dalszych instrukcji.")
