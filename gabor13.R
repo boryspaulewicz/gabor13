@@ -80,7 +80,7 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
     ## Szablon
     if(trial == 1){
         state = 'press-space'
-    }else if((trial %% block.length) == 0){
+    }else if((trial %% block.length) == 1){
         state = 'break'
     }else{ state = 'show-fixation' }
     if(WINDOW$is.open())process.inputs()
