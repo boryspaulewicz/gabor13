@@ -1,4 +1,4 @@
-LONELY.MASK.DURATION = 608
+LONELY.MASK.DURATION = 1000
 ORDER = 'type2'
 INSTR=list(M = 'Teraz będzie trzeci trening, w którym paski będą się wyświetlać tak, jak w głównym zadaniu. Paski będą czasami prezentowane bardzo krótko, jeśli nie będziesz wiedzieć, w którą stronę są pochylone, po prostu zgaduj. 
 Tym razem przed każdą decyzji "lewo/prawo”, pojawi się skala, na której będziesz zaznaczać, jak dobrze widziałeś wzór. Do zaznaczania na skali używaj myszki i swojej DOMINUJĄCEJ ręki (prawej, jeśli jesteś praworęczna/y). Do klikania „prawo-lewo” używaj strzałek na klawiaturze i DRUGIEJ ręki. Możesz przesunąć klawiaturę tak, aby było Ci wygodnie. Pamiętaj, aby NIE PRZENOSIĆ ręki z klawiatury na myszkę. Jednej ręki używaj do zaznaczania punktów na skali, a drugiej do wciskania strzałek na klawiaturze.',
