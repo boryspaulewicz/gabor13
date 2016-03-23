@@ -252,7 +252,7 @@ run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                                                     duration = 128), b = 3)
 
 ## Trening3: 8 prób, czasy prezentacji wszystkie, bez feedkacku, skala
-gui.show.instruction(scale = 13, INSTR)
+gui.show.instruction(scale = 13, INSTR[[USER.DATA$gender]])
 run.trials(trial.code, condition = cnd, expand.grid(side = c('left', 'right'),
                            decorder = ORDER, withscale = 1, feedback = 0,
                            duration = c(16, 128, 32, 64)), b = 1)
