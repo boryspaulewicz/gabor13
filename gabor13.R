@@ -150,6 +150,7 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
             if((CLOCK$time - mask.onset) > LONELY.MASK.DURATION){
                 if((decorder == 'type2') && (withscale == 1)){
                     scale.onset = CLOCK$time
+                    WINDOW$set.mouse.cursor.visible(T)
                     state = 'draw-scale'
                 }else{
                     state = 'show-leftright'
@@ -189,6 +190,7 @@ trial.code = function(trial, side = 'left', decorder = 'type1', duration = 1000,
             if(!is.null(ACC) || ((CLOCK$time - leftright.onset) > MAX.REACTION.TIME)){
                 if((decorder == 'type1') && (withscale == 1)){
                     scale.onset = CLOCK$time
+                    WINDOW$set.mouse.cursor.visible(T)
                     state = 'draw-scale'
                 }else{
                     if(feedback == 1){
